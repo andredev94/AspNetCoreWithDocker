@@ -1,0 +1,7 @@
+{
+  "Evolve.Driver": "MySQL.Data",
+  "Evolve.ConnectionString": "Server=localhost;Port=3306;Database=rest_core_docker;Uid=root;Pwd=root;SslMode=none;",
+  "Evolve.Locations": "DataBase",
+  "Evolve.Command": "",
+  "Evolve.Placeholder.table4": "table_4"
+}
