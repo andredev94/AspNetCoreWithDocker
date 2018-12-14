@@ -1,7 +1,5 @@
-﻿using AspNetCoreWithDocker.Business.BusinessImplementation.Book;
-using AspNetCoreWithDocker.Business.BusinessImplementation.People;
+﻿using AspNetCoreWithDocker.Business.BusinessImplementation.People;
 using AspNetCoreWithDocker.Business.BusinessImplementation.User;
-using AspNetCoreWithDocker.Business.Rules.Book;
 using AspNetCoreWithDocker.Business.Rules.People;
 using AspNetCoreWithDocker.Business.Rules.User;
 using AspNetCoreWithDocker.HyperMedia;
@@ -165,7 +163,6 @@ namespace AspNetCoreWithDocker
 
             // Adding injection dependency of Business layer 
             services.AddScoped<IPersonBusiness, PersonBusinessImpl>();
-            services.AddScoped<IBooksBusiness, BooksBusinessImpl>();
             services.AddScoped<IUserBusiness, UserBusinessImpl>();
 
             // Adding Generic Repository injection dependency and other repositories to

@@ -1,3 +1,10 @@
+FROM mysql:8.0.12
+WORKDIR /app
+EXPOSE 3306
+COPY ./DataBase/DataSet/ /home/database
+COPY ./DataBase/Migrations/ /home/database
+COPY ./ci/init_database.sh /docker-entrypoint-initdb.d/init_database.sh
+
 FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 50977
@@ -18,3 +25,6 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AspNetCoreWithDocker.dll"]
+
+
+

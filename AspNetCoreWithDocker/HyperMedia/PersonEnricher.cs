@@ -17,61 +17,65 @@ namespace AspNetCoreWithDocker.HyperMedia
                 content.Links = new System.Collections.Generic.List<HyperMediaLink>();
             }
 
-            content.Links.Add(new HyperMediaLink()
+            if (content.Links.Count >= 0)
             {
-                Action = HttpActionVerb.GET,
-                Href = urlHelper.Link("DefaultApi", new { controller = path }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultGet
-            });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.GET,
-                Href = urlHelper.Link("DefaultApi", new { controller = path, id = content.Codigo }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultGet
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.GET,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultGet
+                });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.GET,
-                Href = urlHelper.Link("DefaultApi", new { controller = path + "/find-by-name", firstName = content.PrimeiroNome }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultGet
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.GET,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path, id = content.Codigo }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultGet
+                });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.GET,
-                Href = urlHelper.Link("DefaultApi", new { controller = path + "/find-with-paged-search/sortDirection/pageSize/page", firstName = content.PrimeiroNome }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultGet
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.GET,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path + "/find-by-name", firstName = content.PrimeiroNome }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultGet
+                });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.POST,
-                Href = urlHelper.Link("DefaultApi", new { controller = path }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultPost
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.GET,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path + "/find-with-paged-search/sortDirection/pageSize/page", firstName = content.PrimeiroNome }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultGet
+                });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.PUT,
-                Href = urlHelper.Link("DefaultApi", new { controller = path }),
-                Rel = RelationType.self,
-                Type = ResponseTypeFormat.DefaultPost
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.POST,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultPost
+                });
 
-            content.Links.Add(new HyperMediaLink()
-            {
-                Action = HttpActionVerb.DELETE,
-                Href = urlHelper.Link("DefaultApi", new { controller = path, id = content.Codigo }),
-                Rel = RelationType.self,
-                Type = "int"
-            });
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.PUT,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path }),
+                    Rel = RelationType.self,
+                    Type = ResponseTypeFormat.DefaultPost
+                });
+
+                content.Links.Add(new HyperMediaLink()
+                {
+                    Action = HttpActionVerb.DELETE,
+                    Href = urlHelper.Link("DefaultApi", new { controller = path, id = content.Codigo }),
+                    Rel = RelationType.self,
+                    Type = "int"
+                });
+            }
             return null;
         }
     }

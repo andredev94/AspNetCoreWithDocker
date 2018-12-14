@@ -12,7 +12,6 @@ namespace AspNetCoreWithDocker.Models.Contexts
         public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { }
 
         public DbSet<Person> People { get; set; }
-        public DbSet<Books> Books { get; set; }
         public DbSet<Users> Users { get; set; }
     }
 }
